@@ -1,0 +1,6 @@
+what is least cost route from object0 to closest object1 based on slope and land use in placename0
+what are network0 for 3 vans to transport object0 from homes to object1 between etime0 in placename0
+what are 3 locations for new object0 that maximize objectquality0 ratio in placename0
+what are 3 locations for new object0 that maximize objectquality0 ratio in placename0
+which object0 is closest to each event0 in world
+what is conamount0 count of event0 for each hexagonal grid in world
