@@ -1892,7 +1892,7 @@ if __name__ == '__main__':
         "https://storage.googleapis.com/allennlp-public-models/ner-model-2020.02.10.tar.gz")  # Allennlp Elmo-based NER
 
     # [X] Read question file
-    questionFilepath = 'test corpus.txt'
+    questionFilepath = "test corpus.txt"
     errorQuestionFilePath = 'error.txt'
     error_ques = open(errorQuestionFilePath, 'w+')
 
@@ -1943,24 +1943,19 @@ if __name__ == '__main__':
                 sen = ' '.join(word.text for word in token_list).strip()  # Question in string without stopwords
                 sen_Clean = word2num(sen)  # Convert numeric words into digit numbers
                 result['cleaned_Question'] = sen_Clean
-                print(f"cleaned_Question: {sen_Clean}")
 
                 # 【X】Identify place names
                 re_Place = place_ner(sen_Clean)
                 result['placename'] = re_Place[0]  # re_Place[0]: list - PlaceName
-                print(f"placename:{re_Place[0]}")
 
                 # [X] Identify Date, Time, Quantity, Cardinal, Percent
                 re_Entities = entity_ner(re_Place[1])  # parsed_Place[1]: sentence
                 result.update(re_Entities[0])  # parsed_Entities[0]: dictionary - Time, Quantity, Percent, Date
-                print(f"measurement:{re_Entities[0]}")
-                print(f"sentence:{re_Entities[1]}")
 
                 # [X] Identify Core Concept
                 re_CoreCon = core_concept_match(re_Entities[1].lower())  # parsed_Entities[1]: sentence
                 result.update(re_CoreCon[0])  # re_CoreCon[0]: dictionary - Core Concepts
                 result['ner_Question'] = re_CoreCon[1]  # re_CoreCon[1] : sentence with core concepts holders
-                print("with core concept holder:{re_CoreCon[1]}")
 
                 # [X] Generate parser tree & Extract core concept transformation
                 parsedQuestion = geo_parser(re_CoreCon[1])

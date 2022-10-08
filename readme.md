@@ -16,6 +16,7 @@ To run `nltk.pos_tag()` dataset need to be downloaded otherwise run with out err
 sudo python -m nltk.downloader -d /usr/local/share/nltk_data all
 ```
 
+Install `conda env` with [`yml file`](env.yml)
 
 
 ## Usage
